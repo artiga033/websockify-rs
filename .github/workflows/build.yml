@@ -69,7 +69,7 @@ jobs:
         strip: true
     - name: Archive (Linux)
       if: ${{ runner.os == 'Linux' }}
-      run: zip ./target/${{ matrix.config.target }}/release/${{ env.APP_NAME}}-${{ matrix.config.target }}.zip ./target/${{ matrix.config.target }}/release/${{ env.APP_NAME}}${{ matrix.config.output_extension }}
+      run: zip -j ./target/${{ matrix.config.target }}/release/${{ env.APP_NAME}}-${{ matrix.config.target }}.zip ./target/${{ matrix.config.target }}/release/${{ env.APP_NAME}}${{ matrix.config.output_extension }}
     - name: Archive (Windows)
       if: ${{ runner.os == 'Windows' }}
       run: Compress-Archive -DestinationPath ./target/${{ matrix.config.target }}/release/${{ env.APP_NAME}}-${{ matrix.config.target }}.zip -Path ./target/${{ matrix.config.target }}/release/${{ env.APP_NAME}}${{ matrix.config.output_extension }} 
